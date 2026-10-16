@@ -7,6 +7,8 @@ occupancy_detection = fetch_ucirepo(id=357)
 # data (as pandas dataframes) 
 X = occupancy_detection.data.features 
 y = occupancy_detection.data.targets 
+X = X.iloc[:8143]
+y = y.iloc[:8143]
 print(occupancy_detection.variables) 
 features_names = ["Temperature", "Humidity", "Light", "CO2", "HumidityRatio"]
 #Checking if the features are normalized
