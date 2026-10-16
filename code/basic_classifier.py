@@ -14,8 +14,12 @@ from sklearn.metrics import accuracy_score
 
 #Importation des données
 occupancy_detection = fetch_ucirepo(id=357) 
-X = occupancy_detection.data.features 
-y = occupancy_detection.data.targets 
+id_train = list(range(8143))
+id_test = list(range(8144, 8144+2665))
+print(id_train)
+print(id_test)
+X = occupancy_detection.data.features.iloc[id_test]
+y = occupancy_detection.data.targets.iloc[id_test]
 features_names = ["Temperature", "Humidity", "Light", "CO2", "HumidityRatio"]
 for feature in features_names:
     X[feature] = pd.to_numeric(X[feature], errors="coerce")
